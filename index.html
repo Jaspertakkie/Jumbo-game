@@ -1,3 +1,169 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Idle Game - Jumbo Edition</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #fff200; /* Jumbo geel */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #game {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            height: 80vh; /* Verhoog de hoogte van het spelgebied */
+            overflow-y: auto; /* Scrollen mogelijk maken */
+        }
+
+        h1 {
+            color: #000; /* Zwart voor contrast */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #000; /* Zwart zoals het Jumbo logo */
+            color: #fff;
+            border: none;
+            padding: 15px; /* Verhoog de padding voor een grotere knop */
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 10px 0; /* Voeg verticale ruimte tussen knoppen toe */
+            width: 100%; /* Maak knoppen 100% breed */
+            display: flex;
+            flex-direction: column; /* Maak knoppen verticaal */
+            align-items: flex-start; /* Align items naar de start */
+        }
+
+        button:hover {
+            background-color: #333; /* Donkerder zwart voor hover effect */
+            transform: scale(1.05); /* Groeieffect bij hover */
+        }
+
+        button:disabled {
+            background-color: #777; /* Grijs als de speler niet genoeg geld heeft */
+            cursor: not-allowed;
+        }
+
+        .info {
+            font-size: 0.8rem; /* Kleinere tekst voor extra info */
+            margin-top: 5px; /* Ruimte boven de info tekst */
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Jumbo Supermarkten</h1>
+        <p>Geld: <span id="money">100</span> €</p>
+        <p>Inkomsten per seconde: <span id="incomePerSecond">0</span> €</p>
+
+        <div class="upgrades">
+            <button id="buyUpgrade1">Koop Extra Kassa<span class="info">Kosten: <span id="cost1">100</span> € - Extra inkomen: <span id="income1">2</span> €</span></button>
+            <button id="buyUpgrade2">Koop Snellere Kassière<span class="info">Kosten: <span id="cost2">200</span> € - Extra inkomen: <span id="income2">5</span> €</span></button>
+            <button id="buyUpgrade3">Koop Meer Producten<span class="info">Kosten: <span id="cost3">500</span> € - Extra inkomen: <span id="income3">10</span> €</span></button>
+            <button id="buyUpgrade4">Koop Marketing Campagne<span class="info">Kosten: <span id="cost4">1000</span> € - Extra inkomen: <span id="income4">20</span> €</span></button>
+            <button id="buyUpgrade5">Koop Beter Voorraadbeheer<span class="info">Kosten: <span id="cost5">1500</span> € - Extra inkomen: <span id="income5">30</span> €</span></button>
+            <button id="buyUpgrade6">Koop Klantenservice<span class="info">Kosten: <span id="cost6">2000</span> € - Extra inkomen: <span id="income6">50</span> €</span></button>
+            <button id="buyUpgrade7">Koop Online Bestellingen<span class="info">Kosten: <span id="cost7">2500</span> € - Extra inkomen: <span id="income7">80</span> €</span></button>
+            <button id="buyUpgrade8">Koop Nieuwe Verkooptechnieken<span class="info">Kosten: <span id="cost8">3000</span> € - Extra inkomen: <span id="income8">100</span> €</span></button>
+            <button id="buyUpgrade9">Koop Klantloyaliteitsprogramma<span class="info">Kosten: <span id="cost9">3500</span> € - Extra inkomen: <span id="income9">150</span> €</span></button>
+            <button id="buyUpgrade10">Koop Verbeterde Verlichting<span class="info">Kosten: <span id="cost10">4000</span> € - Extra inkomen: <span id="income10">200</span> €</span></button>
+            <button id="buyUpgrade11">Koop Duurzame Producten<span class="info">Kosten: <span id="cost11">4500</span> € - Extra inkomen: <span id="income11">250</span> €</span></button>
+            <button id="buyUpgrade12">Koop Verbeterde Winkelindeling<span class="info">Kosten: <span id="cost12">5000</span> € - Extra inkomen: <span id="income12">300</span> €</span></button>
+            <button id="buyUpgrade13">Koop Maaltijdpakketten<span class="info">Kosten: <span id="cost13">5500</span> € - Extra inkomen: <span id="income13">400</span> €</span></button>
+            <button id="buyUpgrade14">Koop Kortingacties<span class="info">Kosten: <span id="cost14">6000</span> € - Extra inkomen: <span id="income14">500</span> €</span></button>
+            <button id="buyUpgrade15">Koop Sociale Media Advertenties<span class="info">Kosten: <span id="cost15">6500</span> € - Extra inkomen: <span id="income15">600</span> €</span></button>
+            <button id="buyUpgrade16">Koop Klantfeedback Systeem<span class="info">Kosten: <span id="cost16">7000</span> € - Extra inkomen: <span id="income16">700</span> €</span></button>
+            <button id="buyUpgrade17">Koop Gezonde Snacks<span class="info">Kosten: <span id="cost17">7500</span> € - Extra inkomen: <span id="income17">800</span> €</span></button>
+            <button id="buyUpgrade18">Koop Seizoensgebonden Producten<span class="info">Kosten: <span id="cost18">8000</span> € - Extra inkomen: <span id="income18">900</span> €</span></button>
+            <button id="buyUpgrade19">Koop Klantgerichte Evenementen<span class="info">Kosten: <span id="cost19">8500</span> € - Extra inkomen: <span id="income19">1000</span> €</span></button>
+            <button id="buyUpgrade20">Koop Verhoogde Klantenbinding<span class="info">Kosten: <span id="cost20">9000</span> € - Extra inkomen: <span id="income20">1200</span> €</span></button>
+        </div>
+    </div>
+
+    <script>
+        let money = parseFloat(localStorage.getItem('money')) || 100;
+        let incomePerSecond = parseFloat(localStorage.getItem('incomePerSecond')) || 0;
+
+        const upgrades = [
+            { cost: 100, income: 2 },
+            { cost: 200, income: 5 },
+            { cost: 500, income: 10 },
+            { cost: 1000, income: 20 },
+            { cost: 1500, income: 30 },
+            { cost: 2000, income: 50 },
+            { cost: 2500, income: 80 },
+            { cost: 3000, income: 100 },
+            { cost: 3500, income: 150 },
+            { cost: 4000, income: 200 },
+            { cost: 4500, income: 250 },
+            { cost: 5000, income: 300 },
+            { cost: 5500, income: 400 },
+            { cost: 6000, income: 500 },
+            { cost: 6500, income: 600 },
+            { cost: 7000, income: 700 },
+            { cost: 7500, income: 800 },
+            { cost: 8000, income: 900 },
+            { cost: 8500, income: 1000 },
+            { cost: 9000, income: 1200 },
+        ];
+
+        function updateDisplay() {
+            document.getElementById("money").innerText = money;
+            document.getElementById("incomePerSecond").innerText = incomePerSecond;
+
+            upgrades.forEach((upgrade, index) => {
+                const button = document.getElementById(`buyUpgrade${index + 1}`);
+                const costElement = document.getElementById(`cost${index + 1}`);
+                const incomeElement = document.getElementById(`income${index + 1}`);
+
+                costElement.innerText = upgrade.cost;
+                incomeElement.innerText = upgrade.income;
+
+                button.disabled = money < upgrade.cost;
+            });
+        }
+
+        function buyUpgrade(index) {
+            if (money >= upgrades[index].cost) {
+                money -= upgrades[index].cost;
+                incomePerSecond += upgrades[index].income;
+                updateDisplay();
+            }
+        }
+
+        upgrades.forEach((_, index) => {
+            document.getElementById(`buyUpgrade${index + 1}`).addEventListener("click", () => buyUpgrade(index));
+        });
+
+        setInterval(() => {
+            money += incomePerSecond;
+            updateDisplay();
+        }, 1000);
+
+        updateDisplay();
+    </script>
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,3 +375,4 @@
     </script>
 </body>
 </html>
+>>>>>>> b6529325733f8d8a7233bb8dd83039890e9d8150

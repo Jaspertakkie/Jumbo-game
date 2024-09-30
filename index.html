@@ -142,7 +142,7 @@
         <input type="text" id="nameInput" placeholder="Voer de naam van de supermarkt in" />
         <button id="startButton">Begin het spel</button>
         
-        <p>Geld: <span id="money">100</span> €</p>
+        <p>Geld: <span id="money">10</span> €</p>
         <p>Inkomsten per seconde: <span id="incomePerSecond">0</span> €</p>
 
         <!-- Aantal upgrades per aankoop -->
@@ -178,8 +178,8 @@
     </div>
 
     <script>
-        let money = parseFloat(localStorage.getItem('money')) || 100;
-        let incomePerSecond = parseFloat(localStorage.getItem('incomePerSecond')) || 1;
+        let money = parseFloat(localStorage.getItem('money')) || 10;
+        let incomePerSecond = parseFloat(localStorage.getItem('incomePerSecond')) || 0;
         let totalMoneyEarned = parseFloat(localStorage.getItem('totalMoneyEarned')) || 0;
         let totalUpgrades = parseFloat(localStorage.getItem('totalUpgrades')) || 0;
 
@@ -274,7 +274,7 @@
         }
 
         function resetGame() {
-            money = 100;
+            money = 10;
             incomePerSecond = 1;
             totalMoneyEarned = 0;
             totalUpgrades = 0;
